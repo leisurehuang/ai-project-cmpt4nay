@@ -1,0 +1,58 @@
+[
+  {
+    "id": "cm001",
+    "title": "包拯黑头谱式",
+    "category": "脸谱",
+    "colorMeaning": "黑色：象征刚烈、正直、铁面无私。包拯额头绘有太极阴阳鱼图案，寓意其昼断阳夜断阴，通晓阴阳两界。",
+    "imageUrl": "/assets/images/makeup/baozheng.webp"
+  },
+  {
+    "id": "cm002",
+    "title": "关羽红生谱式",
+    "category": "脸谱",
+    "colorMeaning": "红色：象征忠勇、正义、赤胆忠心。关羽脸谱以大红为主色，丹凤眼、卧蚕眉，凸显其义薄云天的英雄气概。",
+    "imageUrl": "/assets/images/makeup/guanyu.webp"
+  },
+  {
+    "id": "cm003",
+    "title": "曹操白净谱式",
+    "category": "脸谱",
+    "colorMeaning": "白色：象征阴险、狡诈、多疑。曹操的白脸细腻水滑，三角眼微吊，展现出一代奸雄城府极深、冷酷无情的性格特征。",
+    "imageUrl": "/assets/images/makeup/caocao.webp"
+  },
+  {
+    "id": "cm004",
+    "title": "焦赞碎花脸",
+    "category": "脸谱",
+    "colorMeaning": "杂色（多色拼接）：象征性格粗犷、勇猛但带有些许鲁莽。碎花脸色彩丰富、纹样繁复，表现人物性格复杂多面。",
+    "imageUrl": "/assets/images/makeup/jiaozan.webp"
+  },
+  {
+    "id": "cm005",
+    "title": "秦腔文官蟒袍",
+    "category": "服饰",
+    "colorMeaning": "蟒袍是秦腔帝王将相的正式官服。圆领大襟，绣有蟒纹（四爪为蟒，区别于五爪龙纹），色彩根据角色地位和性格而定。红色蟒袍代表忠烈，黑色代表刚直，黄色专属于帝王。",
+    "imageUrl": "/assets/images/costumes/mangpao.webp"
+  },
+  {
+    "id": "cm006",
+    "title": "秦腔凤冠霞帔",
+    "category": "服饰",
+    "colorMeaning": "凤冠是秦腔中贵妇、诰命夫人或皇后所戴的头饰，以金银丝编成凤凰形态，点缀珠翠流苏。霞帔是披在肩背部的长条形绣花服饰，色彩绚丽如晚霞，彰显女性角色的尊贵身份。",
+    "imageUrl": "/assets/images/costumes/fengguan.webp"
+  },
+  {
+    "id": "cm007",
+    "title": "秦腔武将靠甲",
+    "category": "服饰",
+    "colorMeaning": "“靠”是秦腔武将的铠甲，分为硬靠（背插四面靠旗）和软靠（无靠旗）。靠甲色彩鲜明，背后四面三角形靠旗不仅增加了武将的威武气势，更在武打动作中产生强烈的视觉美感。",
+    "imageUrl": "/assets/images/costumes/kaojia.webp"
+  },
+  {
+    "id": "cm008",
+    "title": "秦腔水袖",
+    "category": "服饰",
+    "colorMeaning": "水袖是缝缀在戏服袖口的一段白色丝绸。秦腔旦角和生角广泛使用水袖。演员通过抖、扬、抛、拂、云等技巧，将水袖舞动出水流般的柔美曲线，以此表达角色的内心情感变化，是秦腔极具代表性的表演技艺。",
+    "imageUrl": "/assets/images/costumes/shuixiu.webp"
+  }
+]
