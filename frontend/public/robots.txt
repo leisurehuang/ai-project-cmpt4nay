@@ -1,0 +1,11 @@
+# 秦腔文化科普网站 - 搜索引擎爬虫规则
+# 允许所有搜索引擎抓取所有页面
+
+User-agent: *
+Allow: /
+
+# 禁止抓取数据文件（这些文件仅供页面内部使用）
+Disallow: /assets/data/
+
+# 站点地图位置
+# Sitemap: https://your-username.github.io/sitemap.xml
