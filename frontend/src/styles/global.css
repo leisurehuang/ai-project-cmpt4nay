@@ -1,0 +1,129 @@
+/* ============================================
+ * 全局样式入口文件
+ * 导入所有子样式文件，定义基础样式
+ * ============================================ */
+
+/* 导入 Tailwind CSS 基础层 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 导入子样式文件 */
+@import './variables.css';
+@import './typography.css';
+@import './animations.css';
+
+/* ============================================
+ * 基础样式重置与全局设定
+ * ============================================ */
+
+@layer base {
+  /* 根元素 */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* 全局body样式 */
+  body {
+    @apply bg-rice-paper-200 text-ink-800 font-body leading-relaxed;
+    overflow-x: hidden;
+  }
+
+  /* 全局选择样式 */
+  ::selection {
+    @apply bg-china-red-200 text-china-red-800;
+  }
+
+  /* 全局焦点样式（无障碍） */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-china-red-500;
+  }
+
+  /* 全局滚动条美化 */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-rice-paper-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold-500;
+  }
+
+  /* 图片默认响应式 */
+  img {
+    @apply max-w-full h-auto;
+  }
+}
+
+/* ============================================
+ * 组件层通用样式
+ * ============================================ */
+
+@layer components {
+  /* 通用内容容器 */
+  .container-custom {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  /* 板块内边距 */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  /* 通用卡片样式 */
+  .card {
+    @apply bg-white/80 backdrop-blur-sm rounded-lg shadow-md
+           border border-rice-paper-300 overflow-hidden
+           transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply shadow-xl -translate-y-1;
+  }
+
+  /* 国潮装饰边框 */
+  .border-ornament {
+    @apply border-2 border-gold-400;
+    box-shadow: inset 0 0 0 1px rgba(212, 168, 67, 0.2);
+  }
+
+  /* 文字渐变效果 */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--color-china-red-500), var(--color-gold-500));
+  }
+}
+
+/* ============================================
+ * 工具层扩展样式
+ * ============================================ */
+
+@layer utilities {
+  /* 文字阴影 */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  /* 装饰性元素隐藏动画 */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
