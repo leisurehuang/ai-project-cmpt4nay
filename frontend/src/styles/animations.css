@@ -1,0 +1,157 @@
+/* ============================================
+ * 全局动画关键帧定义
+ * 滚动渐入、弹跳箭头、翻转卡片等动画效果
+ * ============================================ */
+
+/* 淡入上移动画（最常用的滚动触发动画） */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 淡入下移动画 */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 从左侧滑入 */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 从右侧滑入 */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 缩放淡入 */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 弹跳箭头动画（用于首页滚动引导） */
+@keyframes bounceArrow {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-12px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-6px) translateX(-50%);
+  }
+}
+
+/* 脉冲发光效果 */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(212, 168, 67, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(212, 168, 67, 0.6);
+  }
+}
+
+/* 旋转加载动画 */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 浮动动画（用于装饰元素） */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* 渐变背景流动 */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ============================================
+ * 动画工具类
+ * ============================================ */
+
+@layer utilities {
+  /* 初始隐藏（配合滚动触发动画使用） */
+  .animate-hidden {
+    opacity: 0;
+  }
+
+  /* 触发后的可见状态 */
+  .animate-visible {
+    opacity: 1;
+  }
+
+  /* 弹跳箭头 */
+  .animate-bounce-arrow {
+    animation: bounceArrow 2.5s ease-in-out infinite;
+  }
+
+  /* 脉冲发光 */
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  /* 浮动效果 */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* 渐变流动 */
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientFlow 4s ease infinite;
+  }
+}
