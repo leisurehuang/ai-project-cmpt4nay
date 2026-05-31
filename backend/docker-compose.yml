@@ -1,0 +1,49 @@
+# ============================================
+# 秦腔文化科普网站 - Docker Compose 编排配置
+# 包含后端服务 + 前端静态资源的完整运行环境
+# ============================================
+
+version: '3.8'
+
+services:
+  # 后端静态文件服务与数据 API
+  qinqiang-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: qinqiang-culture-server
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - STATIC_DIR=/app/frontend/dist
+      - DATA_DIR=/app/frontend/public/assets/data
+      - CORS_ORIGIN=*
+    volumes:
+      # 挂载前端构建产物（需先构建前端: cd frontend && npm run build）
+      - ../frontend/dist:/app/frontend/dist:ro
+      # 挂载前端数据文件（JSON数据源）
+      - ../frontend/public/assets/data:/app/frontend/public/assets/data:ro
+      # 挂载前端图片资源
+      - ../frontend/public/assets/images:/app/frontend/dist/assets/images:ro
+      # 挂载前端音频资源
+      - ../frontend/public/assets/audio:/app/frontend/dist/assets/audio:ro
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - qinqiang-network
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  qinqiang-network:
+    driver: bridge
