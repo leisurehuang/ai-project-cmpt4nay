@@ -1,0 +1,40 @@
+---
+/**
+ * 通用板块标题组件
+ * 带国潮装饰元素的板块标题
+ * 包含中文主标题、英文副标题、左右装饰线
+ */
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  id?: string;
+}
+
+const { title, subtitle, id } = Astro.props;
+---
+
+<div class="text-center mb-12 md:mb-16" id={id}>
+  <!-- 英文副标题 -->
+  {subtitle && (
+    <p class="text-gold-500 font-body text-sm md:text-base tracking-[0.3em] uppercase mb-3">
+      {subtitle}
+    </p>
+  )}
+
+  <!-- 装饰线 + 中文主标题 -->
+  <div class="flex items-center justify-center gap-4">
+    <!-- 左装饰线 -->
+    <div class="hidden sm:block w-16 md:w-24 h-px bg-gradient-to-r from-transparent to-gold-400"></div>
+
+    <!-- 标题 -->
+    <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-ink-800 relative">
+      {title}
+      <!-- 底部装饰下划线 -->
+      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 md:w-16 h-1 bg-gradient-to-r from-china-red-500 to-gold-500 rounded-full"></span>
+    </h2>
+
+    <!-- 右装饰线 -->
+    <div class="hidden sm:block w-16 md:w-24 h-px bg-gradient-to-l from-transparent to-gold-400"></div>
+  </div>
+</div>
