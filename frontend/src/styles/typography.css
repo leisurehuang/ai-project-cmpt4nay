@@ -1,0 +1,79 @@
+/* ============================================
+ * 排版样式
+ * 定义标题层级、段落、引用等中文排版规范
+ * ============================================ */
+
+@layer base {
+  /* 一级标题：板块主标题 */
+  h1, .h1 {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-bold
+           text-ink-800 leading-tight tracking-wide;
+  }
+
+  /* 二级标题：板块内分区标题 */
+  h2, .h2 {
+    @apply font-display text-3xl md:text-4xl font-bold
+           text-ink-800 leading-tight;
+  }
+
+  /* 三级标题：卡片标题 */
+  h3, .h3 {
+    @apply font-display text-xl md:text-2xl font-semibold
+           text-ink-700 leading-snug;
+  }
+
+  /* 四级标题：小组标题 */
+  h4, .h4 {
+    @apply font-body text-lg md:text-xl font-semibold
+           text-ink-700 leading-snug;
+  }
+
+  /* 段落文字 */
+  p {
+    @apply text-base md:text-lg text-ink-600 leading-relaxed;
+  }
+
+  /* 小号文字 */
+  small, .text-small {
+    @apply text-sm text-ink-400;
+  }
+
+  /* 引用块 */
+  blockquote {
+    @apply relative pl-6 py-2 my-4
+           text-lg md:text-xl italic text-ink-500
+           border-l-4 border-gold-400;
+  }
+
+  /* 强调文字 */
+  strong, b {
+    @apply font-bold text-ink-800;
+  }
+
+  /* 链接 */
+  a {
+    @apply text-china-red-500 underline-decoration
+           transition-colors duration-200;
+  }
+
+  a:hover {
+    @apply text-china-red-600;
+  }
+
+  /* 列表 */
+  ul, ol {
+    @apply pl-6 space-y-1;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  li {
+    @apply text-ink-600 leading-relaxed;
+  }
+}
