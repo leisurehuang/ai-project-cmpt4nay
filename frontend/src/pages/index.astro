@@ -1,0 +1,82 @@
+---
+/**
+ * 网站主页面
+ * 单页应用架构，按顺序组合六大板块
+ * 通过锚点实现页内导航
+ * 所有数据在构建时从 JSON 文件直接注入
+ */
+
+import MainLayout from '../layouts/MainLayout.astro';
+import SectionTitle from '../components/layout/SectionTitle.astro';
+import Divider from '../components/layout/Divider.astro';
+
+// 构建时直接导入 JSON 数据
+import historyData from '../../public/assets/data/history.json';
+import rolesData from '../../public/assets/data/roles.json';
+import costumesMakeupData from '../../public/assets/data/costumes-makeup.json';
+import artistsPlaysData from '../../public/assets/data/artists-plays.json';
+import mediaData from '../../public/assets/data/media.json';
+
+// 导入板块组件
+import HeroSection from '../components/home/HeroSection.astro';
+import HistorySection from '../components/history/HistorySection.astro';
+import RolesSection from '../components/roles/RolesSection.astro';
+import GallerySection from '../components/gallery/GallerySection.astro';
+import ArtistsSection from '../components/artists/ArtistsSection.astro';
+import MediaSection from '../components/media/MediaSection.astro';
+---
+
+<MainLayout>
+  <!-- 板块一：首页视觉冲击横幅 -->
+  <HeroSection />
+
+  <Divider variant="cloud" />
+
+  <!-- 板块二：历史起源科普 -->
+  <section id="history" class="section-padding scroll-mt-20" aria-labelledby="history-title">
+    <div class="container-custom">
+      <SectionTitle title="历史起源" subtitle="History & Origins" />
+      <HistorySection data={historyData} />
+    </div>
+  </section>
+
+  <Divider variant="wave" />
+
+  <!-- 板块三：行当分类展示 -->
+  <section id="roles" class="section-padding bg-white/40 scroll-mt-20" aria-labelledby="roles-title">
+    <div class="container-custom">
+      <SectionTitle title="行当分类" subtitle="Role Categories" />
+      <RolesSection data={rolesData} />
+    </div>
+  </section>
+
+  <Divider variant="cloud" />
+
+  <!-- 板块四：脸谱与服饰图鉴 -->
+  <section id="gallery" class="section-padding scroll-mt-20" aria-labelledby="gallery-title">
+    <div class="container-custom">
+      <SectionTitle title="脸谱与服饰" subtitle="Makeup & Costumes" />
+      <GallerySection data={costumesMakeupData} />
+    </div>
+  </section>
+
+  <Divider variant="wave" />
+
+  <!-- 板块五：名家与经典剧目 -->
+  <section id="artists" class="section-padding bg-white/40 scroll-mt-20" aria-labelledby="artists-title">
+    <div class="container-custom">
+      <SectionTitle title="名家与经典剧目" subtitle="Masters & Classic Plays" />
+      <ArtistsSection data={artistsPlaysData} />
+    </div>
+  </section>
+
+  <Divider variant="cloud" />
+
+  <!-- 板块六：视听体验区 -->
+  <section id="media" class="section-padding scroll-mt-20" aria-labelledby="media-title">
+    <div class="container-custom">
+      <SectionTitle title="视听体验" subtitle="Audio & Visual" />
+      <MediaSection data={mediaData} />
+    </div>
+  </section>
+</MainLayout>
