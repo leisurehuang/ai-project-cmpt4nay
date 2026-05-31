@@ -1,0 +1,80 @@
+---
+/**
+ * 首页视觉冲击横幅组件
+ * 全屏背景图 + 书法体大标题 + 滚动引导
+ * 作为网站的第一视觉焦点，营造国潮氛围
+ */
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center justify-center overflow-hidden"
+  aria-label="首页横幅"
+>
+  <!-- 背景图层（使用渐变作为占位，实际项目替换为真实背景图） -->
+  <div class="absolute inset-0 bg-gradient-to-br from-ink-900 via-ink-800 to-china-red-900">
+    <!-- 国潮纹理装饰层 -->
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: url('/assets/images/patterns/cloud-pattern.svg'); background-size: 200px; background-repeat: repeat;"></div>
+    <!-- 暗角渐变 -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-rice-paper-200"></div>
+  </div>
+
+  <!-- 浮动装饰元素 -->
+  <div class="absolute top-20 left-10 w-20 h-20 rounded-full bg-china-red-500/10 animate-float" style="animation-delay: 0s;"></div>
+  <div class="absolute top-40 right-20 w-16 h-16 rounded-full bg-gold-500/10 animate-float" style="animation-delay: 1s;"></div>
+  <div class="absolute bottom-40 left-1/4 w-12 h-12 rounded-full bg-gold-400/10 animate-float" style="animation-delay: 2s;"></div>
+
+  <!-- 主内容 -->
+  <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+    <!-- 装饰小标签 -->
+    <p class="text-gold-400 text-sm md:text-base tracking-[0.5em] uppercase mb-6 animate-fade-in">
+      中国非物质文化遗产
+    </p>
+
+    <!-- 主标题（书法体） -->
+    <h1 class="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white text-shadow-lg mb-6 animate-fade-in-up"
+        style="animation-delay: 0.2s;">
+      大秦之腔
+    </h1>
+
+    <!-- 副标题 -->
+    <p class="text-xl sm:text-2xl md:text-3xl text-gold-200 font-body mb-4 animate-fade-in-up"
+       style="animation-delay: 0.4s;">
+      千年戏曲 · 百代传承
+    </p>
+
+    <!-- 描述文字 -->
+    <p class="text-base md:text-lg text-rice-paper-300/90 max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
+       style="animation-delay: 0.6s;">
+      以现代视角，带你走进中国最古老的戏曲艺术之一，
+      领略秦腔独有的豪迈与深情。
+    </p>
+
+    <!-- CTA 按钮 -->
+    <div class="mt-10 animate-fade-in-up" style="animation-delay: 0.8s;">
+      <a
+        href="#history"
+        class="inline-flex items-center gap-2 px-8 py-3.5 bg-china-red-500 text-white font-body text-lg
+               rounded-sm border-2 border-china-red-400 shadow-lg shadow-china-red-500/30
+               hover:bg-china-red-600 hover:border-china-red-500 hover:shadow-xl hover:shadow-china-red-500/40
+               transition-all duration-300 group"
+      >
+        <span>开始探索</span>
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 底部滚动引导 -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-arrow text-white/70">
+    <a href="#history" aria-label="向下滚动" class="flex flex-col items-center gap-2 hover:text-white transition-colors">
+      <span class="text-xs tracking-widest text-rice-paper-400">向下滚动</span>
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </a>
+  </div>
+</section>
