@@ -1,0 +1,27 @@
+{
+  "name": "qinqiang-culture-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "秦腔文化科普网站 - 以现代国潮视觉设计展示中国非物质文化遗产秦腔",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.16.18",
+    "@astrojs/vue": "^4.5.3",
+    "vue": "^3.4.21",
+    "@astrojs/tailwind": "^5.1.4",
+    "tailwindcss": "^3.4.17",
+    "@fontsource/noto-serif-sc": "^5.0.12",
+    "@fontsource/zcool-xiaowei": "^5.0.11"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.10.0"
+  }
+}
