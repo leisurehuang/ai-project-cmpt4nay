@@ -1,0 +1,47 @@
+[
+  {
+    "id": "m001",
+    "title": "《三滴血》经典选段（音频）",
+    "type": "audio",
+    "source": "local",
+    "url": "/assets/audio/sandixue-excerpt.mp3",
+    "coverUrl": "/assets/images/plays/sandixue-cover.webp",
+    "description": "《三滴血》是秦腔大师刘易平的代表剧目，讲述了因县令晋信书迷信“滴血认亲”而导致的悲欢离合。这段唱腔苍劲悲凉，充分展现了秦腔老生行当的醇厚韵味，是不可多得的经典录音。"
+  },
+  {
+    "id": "m002",
+    "title": "秦腔《火焰驹》表花选段（音频）",
+    "type": "audio",
+    "source": "local",
+    "url": "/assets/audio/huoyanju-biaohua.mp3",
+    "coverUrl": "/assets/images/plays/huoyanju-cover.webp",
+    "description": "《火焰驹》表花选段是秦腔正旦（青衣）的必修剧目，唱腔优美婉转，配以细腻的身段和水袖表演，生动刻画了黄桂英对爱情的坚贞不渝和对封建礼教的反抗精神。"
+  },
+  {
+    "id": "m003",
+    "title": "纪录片《大秦之腔》（上集）",
+    "type": "video",
+    "source": "bilibili",
+    "url": "https://player.bilibili.com/player.html?bvid=BV1YW411M7vD&page=1",
+    "coverUrl": "/assets/images/plays/daqinzhiqiang-cover.webp",
+    "description": "本纪录片深入陕西关中腹地，探访秦腔的起源、发展和传承现状。从古老的戏台到现代化的剧院，从乡村的自乐班到国家级的名角大腕，全景展现秦腔这一古老艺术的独特魅力和旺盛生命力。"
+  },
+  {
+    "id": "m004",
+    "title": "秦腔《周仁回府》夜奔选段",
+    "type": "video",
+    "source": "bilibili",
+    "url": "https://player.bilibili.com/player.html?bvid=BV1ms411Q7iA&page=1",
+    "coverUrl": "/assets/images/plays/zhouren-cover.webp",
+    "description": "《周仁回府》夜奔选段是秦腔须生行当的巅峰之作。演员在悲愤交加的情绪中，运用甩发、跪步、抢背等高难度特技，配合撕心裂肺的唱腔，将周仁内心的痛苦、委屈与绝望表现得淋漓尽致，极具艺术感染力。"
+  },
+  {
+    "id": "m005",
+    "title": "当年轻人遇见秦腔（短视频）",
+    "type": "video",
+    "source": "bilibili",
+    "url": "https://player.bilibili.com/player.html?bvid=BV1J54y1Q7iR&page=1",
+    "coverUrl": "/assets/images/plays/youth-qinqiang-cover.webp",
+    "description": "在短视频平台上，秦腔正在以一种全新的方式吸引着年轻观众。许多年轻的秦腔演员和爱好者通过直播、短视频等形式，将古老的秦腔与现代流行元素相结合，让这一国家级非物质文化遗产在新时代焕发出新的生机。"
+  }
+]
