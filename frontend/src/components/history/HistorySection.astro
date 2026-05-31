@@ -1,0 +1,44 @@
+---
+/**
+ * 历史起源板块组件
+ * 接收历史事件数据，渲染板块简介和交互式时间轴
+ */
+
+interface Props {
+  data: Array<{
+    id: string;
+    year: string;
+    title: string;
+    description: string;
+    imageUrl?: string;
+  }>;
+}
+
+const { data } = Astro.props;
+---
+
+<!-- 板块简介 -->
+<div class="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+  <p class="text-lg md:text-xl text-ink-500 leading-relaxed">
+    秦腔，中国最古老的戏剧之一，起源于古代陕西、甘肃一带的民间歌舞。
+    它是中国戏曲的"百戏之祖"，其高亢激昂的唱腔和独特的表演风格，
+    见证了中华民族数千年的文化变迁。
+  </p>
+</div>
+
+<!-- 交互式时间轴（Vue 组件，进入视口时加载） -->
+<div id="history-timeline-mount" data-timeline={JSON.stringify(data)}>
+  <!-- Vue 组件挂载点 -->
+</div>
+
+<script>
+  import { createApp } from 'vue';
+  import Timeline from './Timeline.vue';
+
+  const mountEl = document.getElementById('history-timeline-mount');
+  if (mountEl) {
+    const data = JSON.parse(mountEl.dataset.timeline || '[]');
+    const app = createApp(Timeline, { items: data });
+    app.mount(mountEl);
+  }
+</script>
