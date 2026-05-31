@@ -1,0 +1,245 @@
+---
+/**
+ * 视听体验板块组件
+ * 接收媒体资源数据，区分音频和视频类型分别渲染
+ * 音频使用自定义 HTML5 播放器，视频使用 Bilibili iframe 懒加载
+ */
+
+interface Props {
+  data: Array<{
+    id: string;
+    title: string;
+    type: string;
+    source: string;
+    url: string;
+    coverUrl?: string;
+    description: string;
+  }>;
+}
+
+const { data } = Astro.props;
+
+/** 按类型分组 */
+const audioItems = data.filter((d) => d.type === 'audio');
+const videoItems = data.filter((d) => d.type === 'video');
+---
+
+<!-- 板块简介 -->
+<div class="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+  <p class="text-lg md:text-xl text-ink-500 leading-relaxed">
+    闭上眼睛聆听一段古老唱腔，或是观看一段名家表演片段，
+    让秦腔的声音带你穿越时空，感受这份震撼心灵的力量。
+  </p>
+</div>
+
+<!-- 视频体验区 -->
+{videoItems.length > 0 && (
+  <div class="mb-12 md:mb-16">
+    <h3 class="font-display text-2xl md:text-3xl text-ink-800 mb-8 flex items-center gap-3">
+      <span class="w-10 h-10 rounded-full bg-china-red-500/10 flex items-center justify-center text-china-red-500">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+      </span>
+      精彩视频
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {videoItems.map((item, index) => (
+        <div class="media-video-card" data-video-card={item.id}
+             style={`animation: fadeInUp 0.6s ease-out ${index * 0.1}s both;`}>
+          <VideoPlaceholder
+            title={item.title}
+            description={item.description}
+            url={item.url}
+            coverUrl={item.coverUrl}
+            id={item.id}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+<!-- 音频体验区 -->
+{audioItems.length > 0 && (
+  <div>
+    <h3 class="font-display text-2xl md:text-3xl text-ink-800 mb-8 flex items-center gap-3">
+      <span class="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-600">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+        </svg>
+      </span>
+      经典唱腔
+    </h3>
+
+    <div class="space-y-6">
+      {audioItems.map((item, index) => (
+        <div class="media-audio-card" data-audio-card={item.id}
+             style={`animation: fadeInUp 0.6s ease-out ${index * 0.15}s both;`}>
+          <AudioPlayerStatic
+            title={item.title}
+            description={item.description}
+            url={item.url}
+            coverUrl={item.coverUrl}
+            id={item.id}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+<!-- 视频占位组件（点击加载 iframe） -->
+<!-- 音频播放器组件 -->
+
+<!-- 视频懒加载与音频播放器脚本 -->
+<script>
+  /**
+   * 视频懒加载：点击封面后加载 Bilibili iframe
+   */
+  function initVideoLazyLoad(): void {
+    const videoCards = document.querySelectorAll('[data-video-card]');
+    videoCards.forEach((card) => {
+      const placeholder = card.querySelector('.video-placeholder');
+      if (!placeholder) return;
+
+      const url = (placeholder as HTMLElement).dataset.url || '';
+      const title = (placeholder as HTMLElement).dataset.title || '';
+
+      placeholder.addEventListener('click', () => {
+        // 替换为 iframe
+        const iframe = document.createElement('iframe');
+        iframe.src = `${url}&autoplay=0&high_quality=1`;
+        iframe.title = title;
+        iframe.setAttribute('allowfullscreen', 'true');
+        iframe.setAttribute('loading', 'lazy');
+        iframe.className = 'w-full aspect-video rounded-lg';
+        iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups');
+
+        const container = card.querySelector('.video-iframe-container');
+        if (container) {
+          container.innerHTML = '';
+          container.appendChild(iframe);
+        }
+        // 隐藏占位图
+        (placeholder as HTMLElement).classList.add('hidden');
+      });
+    });
+  }
+
+  /**
+   * 自定义音频播放器
+   */
+  function initAudioPlayers(): void {
+    const audioCards = document.querySelectorAll('[data-audio-card]');
+    audioCards.forEach((card) => {
+      const audio = card.querySelector('audio') as HTMLAudioElement;
+      const playBtn = card.querySelector('.audio-play-btn');
+      const progress = card.querySelector('.audio-progress') as HTMLElement;
+      const progressFill = card.querySelector('.audio-progress-fill') as HTMLElement;
+      const currentTime = card.querySelector('.audio-current-time');
+      const totalTime = card.querySelector('.audio-total-time');
+      const volumeSlider = card.querySelector('.audio-volume') as HTMLInputElement;
+
+      if (!audio || !playBtn || !progress || !progressFill) return;
+
+      let isPlaying = false;
+
+      // 播放/暂停
+      playBtn.addEventListener('click', () => {
+        if (isPlaying) {
+          audio.pause();
+        } else {
+          audio.play().catch(() => {});
+        }
+      });
+
+      audio.addEventListener('play', () => {
+        isPlaying = true;
+        playBtn.innerHTML = `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>`;
+      });
+
+      audio.addEventListener('pause', () => {
+        isPlaying = false;
+        playBtn.innerHTML = `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+      });
+
+      // 进度更新
+      audio.addEventListener('timeupdate', () => {
+        const pct = (audio.currentTime / audio.duration) * 100;
+        progressFill.style.width = `${pct}%`;
+        if (currentTime) {
+          currentTime.textContent = formatTime(audio.currentTime);
+        }
+      });
+
+      audio.addEventListener('loadedmetadata', () => {
+        if (totalTime) {
+          totalTime.textContent = formatTime(audio.duration);
+        }
+      });
+
+      // 点击进度条跳转
+      progress.addEventListener('click', (e) => {
+        const rect = progress.getBoundingClientRect();
+        const pct = (e.clientX - rect.left) / rect.width;
+        audio.currentTime = pct * audio.duration;
+      });
+
+      // 音量控制
+      if (volumeSlider) {
+        volumeSlider.addEventListener('input', () => {
+          audio.volume = parseFloat(volumeSlider.value);
+        });
+      }
+    });
+  }
+
+  function formatTime(sec: number): string {
+    if (isNaN(sec)) return '0:00';
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return `${m}:${s.toString().padStart(2, '0')}`;
+  }
+
+  initVideoLazyLoad();
+  initAudioPlayers();
+  document.addEventListener('astro:page-load', () => {
+    initVideoLazyLoad();
+    initAudioPlayers();
+  });
+</script>
+
+<!-- ===== 视频占位组件 ===== -->
+{videoItems.map((item) => (
+  <div class="hidden" data-video-template={item.id}>
+    <div class="video-placeholder card overflow-hidden cursor-pointer group"
+         data-url={item.url}
+         data-title={item.title}>
+      <!-- 封面图 -->
+      <div class="relative aspect-video bg-ink-800 overflow-hidden">
+        {item.coverUrl && (
+          <img src={item.coverUrl} alt={item.title} class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" loading="lazy" />
+        )}
+        <!-- 播放按钮 -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-16 h-16 rounded-full bg-china-red-500/90 text-white flex items-center justify-center
+                      shadow-lg shadow-china-red-500/40 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <!-- 来源标签 -->
+        <span class="absolute top-2 right-2 px-2 py-0.5 bg-black/60 text-white text-xs rounded">
+          Bilibili
+        </span>
+      </div>
+      <!-- 信息 -->
+      <div class="p-4">
+        <h4 class="font-display text-lg text-ink-800 group-hover:text-china-red-500 transition-colors mb-2">{item.title}</h4>
+        <p class="text-ink-400 text-sm line-clamp-2">{item.description}</p>
+      </div>
+    </div>
+    <div class="video-iframe-container mt-2 rounded-lg overflow-hidden bg-ink-800 aspect-video"></div>
+  </div>
+))}
