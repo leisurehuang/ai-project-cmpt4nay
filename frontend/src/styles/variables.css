@@ -1,0 +1,59 @@
+/* ============================================
+ * CSS 自定义属性（设计令牌）
+ * 定义全局可复用的设计变量
+ * 与 Tailwind 主题色保持同步
+ * ============================================ */
+
+:root {
+  /* ---- 主题色 ---- */
+  --color-china-red: #C41A1A;
+  --color-china-red-light: #F87171;
+  --color-china-red-dark: #7F1D1D;
+
+  --color-ink: #1A1A1A;
+  --color-ink-light: #525252;
+
+  --color-gold: #D4A843;
+  --color-gold-light: #F3E19B;
+  --color-gold-dark: #937624;
+
+  --color-rice-paper: #F5F0E8;
+  --color-rice-paper-light: #FDFCFA;
+  --color-rice-paper-dark: #E0D3BE;
+
+  /* ---- 间距 ---- */
+  --spacing-section: 8rem;
+  --spacing-section-mobile: 4rem;
+
+  /* ---- 圆角 ---- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* ---- 阴影 ---- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-gold: 0 4px 14px rgba(212, 168, 67, 0.3);
+
+  /* ---- 字体族 ---- */
+  --font-display: 'ZCOOL XiaoWei', 'STKaiti', 'KaiTi', serif;
+  --font-body: 'Noto Serif SC', 'STSong', 'SimSun', serif;
+
+  /* ---- 导航栏高度 ---- */
+  --nav-height: 4rem;
+
+  /* ---- 过渡时间 ---- */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+}
+
+/* 深色模式变量（预留） */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* 暂不实现深色模式，保留扩展点 */
+  }
+}
