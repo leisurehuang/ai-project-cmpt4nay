@@ -1,0 +1,46 @@
+---
+/**
+ * 脸谱与服饰图鉴板块组件
+ * 接收脸谱服饰数据，渲染筛选器和画廊
+ * 支持按分类（脸谱/服饰）筛选，点击查看大图灯箱
+ */
+
+interface Props {
+  data: Array<{
+    id: string;
+    title: string;
+    category: string;
+    colorMeaning?: string;
+    imageUrl: string;
+  }>;
+}
+
+const { data } = Astro.props;
+---
+
+<!-- 板块简介 -->
+<div class="max-w-3xl mx-auto text-center mb-10 md:mb-14">
+  <p class="text-lg md:text-xl text-ink-500 leading-relaxed">
+    秦腔的脸谱以鲜明色彩勾勒人物性格，服饰以华美绣工彰显角色身份。
+    每一笔、每一线，都承载着深厚的文化寓意。
+  </p>
+</div>
+
+<!-- 画廊应用挂载点 -->
+<div id="gallery-app-mount" data-gallery={JSON.stringify(data)}></div>
+
+<script>
+  import { createApp } from 'vue';
+  import GalleryApp from './GalleryApp.vue';
+
+  function mountGallery(): void {
+    const mountEl = document.getElementById('gallery-app-mount');
+    if (mountEl && !mountEl.__vue_app__) {
+      const data = JSON.parse(mountEl.dataset.gallery || '[]');
+      const app = createApp(GalleryApp, { items: data });
+      app.mount(mountEl);
+    }
+  }
+  mountGallery();
+  document.addEventListener('astro:page-load', mountGallery);
+</script>
