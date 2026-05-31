@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- OG 社交分享封面图（1200x630 符合 Open Graph 规范） -->
+  <!-- 背景 -->
+  <rect width="1200" height="630" fill="#1A1A1A"/>
+  <!-- 装饰渐变 -->
+  <rect width="1200" height="630" fill="url(#bg-gradient)" opacity="0.8"/>
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A1A"/>
+      <stop offset="50%" stop-color="#3B0808"/>
+      <stop offset="100%" stop-color="#1A1A1A"/>
+    </linearGradient>
+  </defs>
+  <!-- 装饰线 -->
+  <line x1="100" y1="180" x2="1100" y2="180" stroke="#D4A843" stroke-width="0.5" opacity="0.3"/>
+  <line x1="100" y1="450" x2="1100" y2="450" stroke="#D4A843" stroke-width="0.5" opacity="0.3"/>
+  <!-- 副标题 -->
+  <text x="600" y="230" text-anchor="middle" fill="#D4A843" font-size="24" font-family="serif" letter-spacing="8">中国非物质文化遗产</text>
+  <!-- 主标题 -->
+  <text x="600" y="320" text-anchor="middle" fill="#FFFFFF" font-size="96" font-weight="bold" font-family="serif">大秦之腔</text>
+  <!-- 英文 -->
+  <text x="600" y="380" text-anchor="middle" fill="#D4A843" font-size="28" font-family="serif" letter-spacing="4" opacity="0.8">Qinqiang Opera Culture</text>
+  <!-- 底部描述 -->
+  <text x="600" y="430" text-anchor="middle" fill="#A3A3A3" font-size="18" font-family="serif">千年戏曲 · 百代传承 · 国潮视觉科普</text>
+  <!-- 底部装饰 -->
+  <rect x="570" y="460" width="60" height="3" rx="1.5" fill="#C41A1A" opacity="0.6"/>
+</svg>
