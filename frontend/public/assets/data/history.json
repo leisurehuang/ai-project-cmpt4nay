@@ -1,0 +1,44 @@
+[
+  {
+    "id": "h001",
+    "year": "先秦时期",
+    "title": "秦腔的远古渊源",
+    "description": "秦腔起源于古代陕西、甘肃一带的民间歌舞。早在先秦时期，秦地先民就在农耕劳动和祭祀活动中创造了富有节奏感的歌唱形式，这被认为是秦腔最原始的萌芽。",
+    "imageUrl": "/assets/images/history/xianqin.webp"
+  },
+  {
+    "id": "h002",
+    "year": "汉代",
+    "title": "百戏中的秦声",
+    "description": "到了汉代，随着“百戏”的繁荣，秦地的民间艺术得到了进一步发展。汉代画像石中保留了大量当时优伶表演的场景，这些早期的戏剧表演形式为秦腔的成型奠定了基础。",
+    "imageUrl": "/assets/images/history/handai.webp"
+  },
+  {
+    "id": "h003",
+    "year": "唐代",
+    "title": "梨园文化的滋养",
+    "description": "唐代长安成为世界文化艺术中心，唐玄宗设立“梨园”教坊，极大地推动了戏曲艺术的系统化发展。当时的秦地曲调、音乐开始与戏剧表演深度融合，秦腔的声腔体系初见端倪。",
+    "imageUrl": "/assets/images/history/tangdai.webp"
+  },
+  {
+    "id": "h004",
+    "year": "明代中叶",
+    "title": "秦腔正式成型",
+    "description": "明代中叶，秦腔作为一种独立的地方戏曲剧种正式形成，并在陕西、甘肃一带广泛流传。其唱腔高亢激昂、粗犷豪放，以枣木梆子击节，开始被称为“梆子腔”。",
+    "imageUrl": "/assets/images/history/mingdai.webp"
+  },
+  {
+    "id": "h005",
+    "year": "清代康乾时期",
+    "title": "鼎盛与进京",
+    "description": "清代康熙、乾隆年间是秦腔的鼎盛时期。秦腔不仅称霸西北，更是传入北京、扬州等大城市。著名秦腔艺人魏长生进京演出引起轰动，一度压倒了当时的昆曲，对后世京剧的形成产生了深远影响。",
+    "imageUrl": "/assets/images/history/qingdai.webp"
+  },
+  {
+    "id": "h006",
+    "year": "近现代",
+    "title": "推陈出新与非遗传承",
+    "description": "进入近现代，秦腔在保持传统底蕴的同时不断推陈出新。2006年，秦腔被列入第一批国家级非物质文化遗产名录。如今，秦腔不仅在西北地区拥有广泛的群众基础，更借助短视频等新媒体走向全国年轻群体。",
+    "imageUrl": "/assets/images/history/modern.webp"
+  }
+]
