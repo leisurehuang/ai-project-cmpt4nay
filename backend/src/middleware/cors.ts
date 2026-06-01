@@ -3,7 +3,7 @@
  * 为本地开发和 API 调用提供跨域支持
  */
 
-import cors from 'cors');
+import cors from 'cors';
 import { CorsOptions } from 'cors';
 
 /**
