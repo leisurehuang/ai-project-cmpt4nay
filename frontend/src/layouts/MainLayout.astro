@@ -37,7 +37,7 @@ import '../styles/global.css';
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_CN" />
-    <meta property="og:image" content="/assets/images/hero/og-cover.webp" />
+    <meta property="og:image" content="/assets/images/hero/og-cover.svg" />
 
     <!-- 网站图标 -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -94,7 +94,7 @@ import '../styles/global.css';
                           after:w-0 after:h-0.5 after:bg-china-red-500 after:transition-all after:duration-300
                           hover:after:w-full"
                    data-nav="gallery">
-                  脸谱服饰
+                  脸谱与服饰
                 </a>
               </li>
               <li>
@@ -104,7 +104,7 @@ import '../styles/global.css';
                           after:w-0 after:h-0.5 after:bg-china-red-500 after:transition-all after:duration-300
                           hover:after:w-full"
                    data-nav="artists">
-                  名家剧目
+                  名家名段
                 </a>
               </li>
               <li>
@@ -119,279 +119,185 @@ import '../styles/global.css';
               </li>
             </ul>
 
-            <!-- 移动端汉堡菜单按钮 -->
-            <button class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
-                    id="mobile-menu-btn"
-                    aria-label="打开导航菜单"
-                    aria-expanded="false">
-              <span class="block w-6 h-0.5 bg-ink-700 transition-all duration-300 origin-center" id="bar1"></span>
-              <span class="block w-6 h-0.5 bg-ink-700 transition-all duration-300" id="bar2"></span>
-              <span class="block w-6 h-0.5 bg-ink-700 transition-all duration-300 origin-center" id="bar3"></span>
+            <!-- 移动端菜单按钮 -->
+            <button
+              class="md:hidden p-2 text-ink-600 hover:text-china-red-500 transition-colors"
+              id="mobile-menu-btn"
+              aria-label="打开导航菜单"
+              aria-expanded="false"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
             </button>
+          </div>
+        </div>
+
+        <!-- 移动端下拉菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-md border-t border-rice-paper-300 shadow-lg">
+          <div class="container-custom py-4">
+            <ul class="space-y-2">
+              <li>
+                <a href="#history" class="mobile-nav-link block py-3 px-4 text-ink-600 hover:text-china-red-500 hover:bg-china-red-50 rounded transition-colors" data-nav="history">
+                  历史起源
+                </a>
+              </li>
+              <li>
+                <a href="#roles" class="mobile-nav-link block py-3 px-4 text-ink-600 hover:text-china-red-500 hover:bg-china-red-50 rounded transition-colors" data-nav="roles">
+                  行当分类
+                </a>
+              </li>
+              <li>
+                <a href="#gallery" class="mobile-nav-link block py-3 px-4 text-ink-600 hover:text-china-red-500 hover:bg-china-red-50 rounded transition-colors" data-nav="gallery">
+                  脸谱与服饰
+                </a>
+              </li>
+              <li>
+                <a href="#artists" class="mobile-nav-link block py-3 px-4 text-ink-600 hover:text-china-red-500 hover:bg-china-red-50 rounded transition-colors" data-nav="artists">
+                  名家名段
+                </a>
+              </li>
+              <li>
+                <a href="#media" class="mobile-nav-link block py-3 px-4 text-ink-600 hover:text-china-red-500 hover:bg-china-red-50 rounded transition-colors" data-nav="media">
+                  视听体验
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
     </header>
 
-    <!-- 主要内容区域 -->
-    <main class="flex-1" id="main-content">
+    <!-- 主内容区域 -->
+    <main class="flex-1">
       <slot />
     </main>
 
     <!-- 页脚 -->
-    <footer class="bg-ink-800 text-rice-paper-200 py-12 md:py-16" id="site-footer">
+    <footer class="bg-ink-800 text-rice-paper-300 py-12 md:py-16">
       <div class="container-custom">
-        <!-- 页脚主体 -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <!-- 关于本站 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <!-- 网站简介 -->
           <div>
-            <h3 class="font-display text-xl text-gold-400 mb-4">关于本站</h3>
-            <p class="text-rice-paper-400 text-sm leading-relaxed">
-              本站是一个致力于秦腔文化科普的非营利性公益网站，以现代国潮视觉设计，向年轻群体和外地游客展示中国非物质文化遗产——秦腔的独特魅力。
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-2xl">🎭</span>
+              <span class="font-display text-xl text-white">秦腔文化</span>
+            </div>
+            <p class="text-sm text-rice-paper-400 leading-relaxed">
+              以现代国潮视觉设计展示中国非物质文化遗产秦腔，
+              致力于用通俗易懂的方式传承和推广这一古老艺术。
             </p>
           </div>
 
-          <!-- 内容导航 -->
+          <!-- 快速导航 -->
           <div>
-            <h3 class="font-display text-xl text-gold-400 mb-4">内容导航</h3>
-            <ul class="space-y-2 text-sm">
-              <li><a href="#history" class="text-rice-paper-400 hover:text-gold-400 transition-colors">历史起源</a></li>
-              <li><a href="#roles" class="text-rice-paper-400 hover:text-gold-400 transition-colors">行当分类</a></li>
-              <li><a href="#gallery" class="text-rice-paper-400 hover:text-gold-400 transition-colors">脸谱服饰</a></li>
-              <li><a href="#artists" class="text-rice-paper-400 hover:text-gold-400 transition-colors">名家剧目</a></li>
-              <li><a href="#media" class="text-rice-paper-400 hover:text-gold-400 transition-colors">视听体验</a></li>
+            <h3 class="font-display text-lg text-white mb-4">快速导航</h3>
+            <ul class="space-y-2">
+              <li><a href="#history" class="text-sm text-rice-paper-400 hover:text-gold-400 transition-colors">历史起源</a></li>
+              <li><a href="#roles" class="text-sm text-rice-paper-400 hover:text-gold-400 transition-colors">行当分类</a></li>
+              <li><a href="#gallery" class="text-sm text-rice-paper-400 hover:text-gold-400 transition-colors">脸谱与服饰</a></li>
+              <li><a href="#artists" class="text-sm text-rice-paper-400 hover:text-gold-400 transition-colors">名家名段</a></li>
+              <li><a href="#media" class="text-sm text-rice-paper-400 hover:text-gold-400 transition-colors">视听体验</a></li>
             </ul>
           </div>
 
-          <!-- 版权声明 -->
+          <!-- 关于项目 -->
           <div>
-            <h3 class="font-display text-xl text-gold-400 mb-4">版权声明</h3>
-            <p class="text-rice-paper-400 text-sm leading-relaxed">
-              本站引用的秦腔素材（图片、音视频）均来自公开领域或已获授权的外部平台。
-              外链视频的版权归原作者及托管平台所有。
+            <h3 class="font-display text-lg text-white mb-4">关于项目</h3>
+            <p class="text-sm text-rice-paper-400 leading-relaxed">
+              秦腔于2006年被列入第一批国家级非物质文化遗产名录。
+              本站为科普性质的非营利项目，旨在弘扬中华优秀传统文化。
             </p>
-            <p class="text-rice-paper-400 text-sm mt-2">
-              如有侵权请联系：<a href="mailto:qinqiang@example.com" class="text-gold-400 hover:text-gold-300 transition-colors">qinqiang@example.com</a>
-            </p>
+            <div class="mt-4 flex gap-3">
+              <span class="inline-block px-3 py-1 bg-china-red-500/20 text-china-red-400 text-xs rounded-full">非物质文化遗产</span>
+              <span class="inline-block px-3 py-1 bg-gold-500/20 text-gold-400 text-xs rounded-full">国潮科普</span>
+            </div>
           </div>
         </div>
 
         <!-- 分隔线 -->
-        <div class="border-t border-ink-700 pt-6">
-          <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p class="text-rice-paper-500 text-xs">
-              © 2024 秦腔文化科普网站 · 中国非物质文化遗产
+        <div class="mt-8 pt-8 border-t border-ink-700">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-rice-paper-500">
+              © 2024 秦腔文化科普网站. 传承非遗，弘扬国粹.
             </p>
-            <p class="text-rice-paper-600 text-xs">
-              基于 Astro + Vue 3 + Tailwind CSS 构建 · 部署于 GitHub Pages
+            <p class="text-xs text-rice-paper-500">
+              内容仅供科普学习，图片版权归原作者所有.
             </p>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- 移动端侧滑菜单（Vue 3 组件） -->
-    <div id="mobile-menu-portal"></div>
-
-    <!-- 回到顶部按钮 -->
-    <div id="back-to-top-portal"></div>
-
-    <!-- 导航栏滚动效果 + 移动端菜单脚本 -->
+    <!-- 全局脚本 -->
     <script>
       /**
        * 导航栏滚动效果
-       * 滚动时添加背景色和阴影
+       * 滚动时为导航栏添加背景色和阴影
        */
-      function initNavbarScroll(): void {
+      function initNavigation(): void {
         const nav = document.getElementById('main-nav');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
         if (!nav) return;
 
-        let lastScrollY = 0;
-
+        // 滚动时导航栏样式变化
         window.addEventListener('scroll', () => {
-          const currentScrollY = window.scrollY;
-
-          // 滚动超过 50px 时添加背景
-          if (currentScrollY > 50) {
+          if (window.scrollY > 50) {
             nav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
-            nav.classList.remove('bg-transparent');
           } else {
             nav.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md');
-            nav.classList.add('bg-transparent');
           }
+        });
 
-          // 向下滚动隐藏导航栏，向上滚动显示导航栏
-          if (currentScrollY > lastScrollY && currentScrollY > 200) {
-            nav.style.transform = 'translateY(-100%)';
-          } else {
-            nav.style.transform = 'translateY(0)';
-          }
+        // 移动端菜单切换
+        if (mobileMenuBtn && mobileMenu) {
+          mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
+          });
 
-          lastScrollY = currentScrollY;
-        }, { passive: true });
-      }
+          // 点击移动端导航链接后关闭菜单
+          mobileMenu.querySelectorAll('.mobile-nav-link').forEach((link) => {
+            link.addEventListener('click', () => {
+              mobileMenu.classList.add('hidden');
+              mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+          });
+        }
 
-      /**
-       * 移动端汉堡菜单交互
-       */
-      function initMobileMenu(): void {
-        const btn = document.getElementById('mobile-menu-btn');
-        const bar1 = document.getElementById('bar1');
-        const bar2 = document.getElementById('bar2');
-        const bar3 = document.getElementById('bar3');
-        const portal = document.getElementById('mobile-menu-portal');
-        if (!btn || !bar1 || !bar2 || !bar3 || !portal) return;
+        // 滚动时高亮当前板块对应的导航链接
+        const sections = ['history', 'roles', 'gallery', 'artists', 'media'];
+        const navLinks = document.querySelectorAll('.nav-link');
 
-        let isOpen = false;
+        function updateActiveNav(): void {
+          const scrollPos = window.scrollY + 100;
 
-        // 创建菜单覆盖层
-        const overlay = document.createElement('div');
-        overlay.className = 'fixed inset-0 z-[60] pointer-events-none';
-        overlay.id = 'mobile-overlay';
-        overlay.innerHTML = `
-          <div class="absolute inset-0 bg-ink-800/60 opacity-0 transition-opacity duration-300" id="mobile-backdrop"></div>
-          <div class="absolute top-0 right-0 h-full w-72 bg-rice-paper-50 shadow-2xl
-                      transform translate-x-full transition-transform duration-300 ease-out
-                      flex flex-col pt-20 px-6" id="mobile-panel">
-            <a href="#history" class="mobile-nav-link block py-3 text-lg font-display text-ink-700 border-b border-rice-paper-300 hover:text-china-red-500 transition-colors">历史起源</a>
-            <a href="#roles" class="mobile-nav-link block py-3 text-lg font-display text-ink-700 border-b border-rice-paper-300 hover:text-china-red-500 transition-colors">行当分类</a>
-            <a href="#gallery" class="mobile-nav-link block py-3 text-lg font-display text-ink-700 border-b border-rice-paper-300 hover:text-china-red-500 transition-colors">脸谱服饰</a>
-            <a href="#artists" class="mobile-nav-link block py-3 text-lg font-display text-ink-700 border-b border-rice-paper-300 hover:text-china-red-500 transition-colors">名家剧目</a>
-            <a href="#media" class="mobile-nav-link block py-3 text-lg font-display text-ink-700 border-b border-rice-paper-300 hover:text-china-red-500 transition-colors">视听体验</a>
-          </div>
-        `;
-        portal.appendChild(overlay);
-
-        const backdrop = document.getElementById('mobile-backdrop')!;
-        const panel = document.getElementById('mobile-panel')!;
-
-        function toggleMenu(): void {
-          isOpen = !isOpen;
-
-          if (isOpen) {
-            overlay.classList.remove('pointer-events-none');
-            overlay.classList.add('pointer-events-auto');
-            backdrop.classList.remove('opacity-0');
-            backdrop.classList.add('opacity-100');
-            panel.classList.remove('translate-x-full');
-            panel.classList.add('translate-x-0');
-            // 汉堡按钮变为 X
-            bar1.classList.add('rotate-45', 'translate-y-2');
-            bar2.classList.add('opacity-0');
-            bar3.classList.add('-rotate-45', '-translate-y-2');
-            btn.setAttribute('aria-expanded', 'true');
-            document.body.classList.add('overflow-hidden');
-          } else {
-            overlay.classList.add('pointer-events-none');
-            overlay.classList.remove('pointer-events-auto');
-            backdrop.classList.add('opacity-0');
-            backdrop.classList.remove('opacity-100');
-            panel.classList.add('translate-x-full');
-            panel.classList.remove('translate-x-0');
-            // 恢复汉堡按钮
-            bar1.classList.remove('rotate-45', 'translate-y-2');
-            bar2.classList.remove('opacity-0');
-            bar3.classList.remove('-rotate-45', '-translate-y-2');
-            btn.setAttribute('aria-expanded', 'false');
-            document.body.classList.remove('overflow-hidden');
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const section = document.getElementById(sections[i]);
+            if (section && section.offsetTop <= scrollPos) {
+              navLinks.forEach((link) => {
+                const navAttr = link.getAttribute('data-nav');
+                if (navAttr === sections[i]) {
+                  link.classList.add('text-china-red-500', 'font-semibold');
+                } else {
+                  link.classList.remove('text-china-red-500', 'font-semibold');
+                }
+              });
+              break;
+            }
           }
         }
 
-        // 点击汉堡按钮切换菜单
-        btn.addEventListener('click', toggleMenu);
-
-        // 点击遮罩层关闭菜单
-        backdrop.addEventListener('click', toggleMenu);
-
-        // 点击导航链接后关闭菜单并平滑滚动
-        overlay.querySelectorAll('.mobile-nav-link').forEach((link) => {
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const href = (link as HTMLAnchorElement).getAttribute('href');
-            if (isOpen) toggleMenu();
-            // 延迟滚动，等菜单关闭动画完成
-            setTimeout(() => {
-              if (href) {
-                const targetId = href.replace('#', '');
-                const target = document.getElementById(targetId);
-                if (target) {
-                  const targetPosition = target.getBoundingClientRect().top + window.scrollY - 80;
-                  window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                }
-              }
-            }, 300);
-          });
-        });
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
       }
 
-      /**
-       * 导航链接平滑滚动（桌面端）
-       */
-      function initSmoothScroll(): void {
-        document.querySelectorAll('.nav-link').forEach((link) => {
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const href = (link as HTMLAnchorElement).getAttribute('href');
-            if (href) {
-              const targetId = href.replace('#', '');
-              const target = document.getElementById(targetId);
-              if (target) {
-                const targetPosition = target.getBoundingClientRect().top + window.scrollY - 80;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-              }
-            }
-          });
-        });
-      }
-
-      /**
-       * 回到顶部按钮
-       */
-      function initBackToTop(): void {
-        const portal = document.getElementById('back-to-top-portal');
-        if (!portal) return;
-
-        const btn = document.createElement('button');
-        btn.className =
-          'fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-china-red-500 text-white shadow-lg\n' +
-          'flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300\n' +
-          'hover:bg-china-red-600 hover:shadow-xl hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400';
-        btn.setAttribute('aria-label', '回到顶部');
-        btn.innerHTML =
-          '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>';
-        portal.appendChild(btn);
-
-        window.addEventListener(
-          'scroll',
-          () => {
-            if (window.scrollY > 600) {
-              btn.classList.remove('opacity-0', 'pointer-events-none');
-              btn.classList.add('opacity-100', 'pointer-events-auto');
-            } else {
-              btn.classList.add('opacity-0', 'pointer-events-none');
-              btn.classList.remove('opacity-100', 'pointer-events-auto');
-            }
-          },
-          { passive: true }
-        );
-
-        btn.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
-
-      // 初始化所有功能
-      document.addEventListener('DOMContentLoaded', () => {
-        initNavbarScroll();
-        initMobileMenu();
-        initSmoothScroll();
-        initBackToTop();
-      });
-
-      // 页面加载完成后立即执行（兼容 Astro 视图过渡）
-      initNavbarScroll();
-      initSmoothScroll();
-      initBackToTop();
+      // 初始化
+      initNavigation();
+      document.addEventListener('astro:page-load', initNavigation);
     </script>
   </body>
 </html>
