@@ -29,7 +29,7 @@
               ? 'translateX(-30px)'
               : 'translateX(30px)',
         }"
-        ref="itemRefs"
+        :ref="(el) => { if (el) itemRefs[index] = el as HTMLElement }"
       >
         <!-- 移动端：左侧圆点 -->
         <div
@@ -81,7 +81,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, reactive, onMounted, onUnmounted } from 'vue';
 
 /** 历史事件项类型 */
 interface HistoryItem {
@@ -97,53 +97,57 @@ const props = defineProps<{
   items: HistoryItem[];
 }>();
 
-/** 可见项集合 */
-const visibleSet = ref(new Set<number>());
-
-/** 元素引用数组 */
-const itemRefs = ref<HTMLElement[]>([]);
+/** 可见性状态跟踪 */
+const visibleItems = reactive(new Set<number>());
 
 /** 容器引用 */
 const containerRef = ref<HTMLElement | null>(null);
 
-/** 观察者实例 */
-let observer: IntersectionObserver | null = null;
+/** 列表项引用 */
+const itemRefs = ref<HTMLElement[]>([]);
 
-/** 判断某项是否可见 */
+/** 判断指定索引项是否可见 */
 function isVisible(index: number): boolean {
-  return visibleSet.value.has(index);
+  return visibleItems.has(index);
 }
 
-onMounted(() => {
-  // 创建 IntersectionObserver 监听每个时间轴项
-  observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const index = itemRefs.value.indexOf(entry.target as HTMLElement);
-          if (index !== -1) {
-            visibleSet.value.add(index);
-            // 触发响应式更新
-            visibleSet.value = new Set(visibleSet.value);
-          }
-          // 一次性观察，触发后取消
-          observer?.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.15,
-      rootMargin: '0px 0px -80px 0px',
-    }
-  );
+/** IntersectionObserver 实例 */
+let observer: IntersectionObserver | null = null;
 
-  // 观察每个时间轴项
-  itemRefs.value.forEach((el) => {
-    if (el) observer?.observe(el);
+onMounted(() => {
+  // 延迟一帧确保 DOM 渲染完成
+  requestAnimationFrame(() => {
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.getAttribute('data-index'));
+            if (!isNaN(index)) {
+              visibleItems.add(index);
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    // 观察所有时间轴项目
+    itemRefs.value.forEach((el, index) => {
+      if (el) {
+        el.setAttribute('data-index', String(index));
+        observer!.observe(el);
+      }
+    });
   });
 });
 
 onUnmounted(() => {
-  observer?.disconnect();
+  if (observer) {
+    observer.disconnect();
+    observer = null;
+  }
 });
 </script>
