@@ -9,7 +9,7 @@
         class="w-full h-full border-0"
         allowfullscreen
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        sandbox="allow-scripts allow-same-origin allow-popups"
+        sandbox="allow-scripts allow-popups"
       ></iframe>
     </div>
 
@@ -72,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { observeElement } from '@/utils/intersection';
 
 /** 组件属性定义 */
@@ -99,33 +99,34 @@ const wrapperRef = ref<HTMLElement | null>(null);
 const isLoaded = ref(false);
 
 /**
- * 将 data-src 赋值给 src，触发 iframe 实际加载
- * 仅在元素可见时调用，实现懒加载
+ * 加载视频：将 iframe 的 data-src 赋值到 src 属性
  */
 function loadVideo(): void {
-  if (isLoaded.value) return;
+  if (!iframeRef.value || isLoaded.value) return;
 
-  const iframe = iframeRef.value;
-  if (iframe && iframe.dataset.src) {
-    iframe.src = iframe.dataset.src;
+  const src = iframeRef.value.dataset.src;
+  if (src) {
+    iframeRef.value.src = src;
     isLoaded.value = true;
   }
 }
 
+/**
+ * 组件挂载后，使用 IntersectionObserver 监听进入视口
+ */
 onMounted(() => {
   if (wrapperRef.value) {
     observeElement(
       wrapperRef.value,
       () => {
-        // 元素进入视口，懒加载 iframe
         loadVideo();
       },
       {
         threshold: 0.1,
-        rootMargin: '100px 0px',
+        rootMargin: '0px 0px -100px 0px',
         once: true,
       },
-      `video-embed-${props.id}`
+      `video-lazy-${props.id}`
     );
   }
 });
