@@ -3,8 +3,8 @@
     "id": "m001",
     "title": "《三滴血》经典选段（音频）",
     "type": "audio",
-    "source": "local",
-    "url": "/assets/audio/sandixue-excerpt.mp3",
+    "source": "external",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
     "coverUrl": "/assets/images/plays/sandixue-cover.webp",
     "description": "《三滴血》是秦腔大师刘易平的代表剧目，讲述了因县令晋信书迷信“滴血认亲”而导致的悲欢离合。这段唱腔苍劲悲凉，充分展现了秦腔老生行当的醇厚韵味，是不可多得的经典录音。"
   },
@@ -12,8 +12,8 @@
     "id": "m002",
     "title": "秦腔《火焰驹》表花选段（音频）",
     "type": "audio",
-    "source": "local",
-    "url": "/assets/audio/huoyanju-biaohua.mp3",
+    "source": "external",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
     "coverUrl": "/assets/images/plays/huoyanju-cover.webp",
     "description": "《火焰驹》表花选段是秦腔正旦（青衣）的必修剧目，唱腔优美婉转，配以细腻的身段和水袖表演，生动刻画了黄桂英对爱情的坚贞不渝和对封建礼教的反抗精神。"
   },
