@@ -45,7 +45,7 @@ export interface MediaResource {
   id: string;
   title: string;
   type: 'audio' | 'video';
-  source: 'local' | 'bilibili';
+  source: 'local' | 'external' | 'bilibili';
   url: string;
   coverUrl?: string;
   description: string;
