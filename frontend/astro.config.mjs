@@ -14,9 +14,11 @@ export default defineConfig({
     tailwind(),
   ],
 
-  // 站点 URL（用于 sitemap 和 canonical URL 生成）
-  // 部署到 GitHub Pages 时需替换为实际地址
-  site: process.env.SITE_URL || 'https://localhost:3000',
+  // 站点 URL
+  site: 'https://leisurehuang.github.io',
+
+  // GitHub Pages 子路径
+  base: '/ai-project-cmpt4nay',
 
   // 输出模式：纯静态 HTML（无需服务端渲染）
   output: 'static',
