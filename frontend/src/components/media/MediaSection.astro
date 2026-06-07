@@ -48,13 +48,26 @@ const videoItems = data.filter((d) => d.type === 'video');
       {videoItems.map((item, index) => (
         <div class="media-video-card" data-video-card={item.id}
              style={`animation: fadeInUp 0.6s ease-out ${index * 0.1}s both;`}>
-          <VideoPlaceholder
-            title={item.title}
-            description={item.description}
-            url={item.url}
-            coverUrl={item.coverUrl}
-            id={item.id}
-          />
+          <div class="video-placeholder card overflow-hidden cursor-pointer group"
+               data-url={item.url}
+               data-title={item.title}>
+            <div class="relative aspect-video bg-ink-800 overflow-hidden">
+              {item.coverUrl && (
+                <img src={item.coverUrl} alt={item.title} class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" loading="lazy" />
+              )}
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-16 h-16 rounded-full bg-china-red-500/90 text-white flex items-center justify-center shadow-lg shadow-china-red-500/40 group-hover:scale-110 transition-transform duration-300">
+                  <svg class="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+              <span class="absolute top-2 right-2 px-2 py-0.5 bg-black/60 text-white text-xs rounded">Bilibili</span>
+            </div>
+            <div class="p-4">
+              <h4 class="font-display text-lg text-ink-800 group-hover:text-china-red-500 transition-colors mb-2">{item.title}</h4>
+              <p class="text-ink-400 text-sm line-clamp-2">{item.description}</p>
+            </div>
+          </div>
+          <div class="video-iframe-container mt-2 rounded-lg overflow-hidden bg-ink-800 aspect-video hidden"></div>
         </div>
       ))}
     </div>
@@ -75,29 +88,40 @@ const videoItems = data.filter((d) => d.type === 'video');
 
     <div class="space-y-6">
       {audioItems.map((item, index) => (
-        <div class="media-audio-card" data-audio-card={item.id}
+        <div class="media-audio-card card p-6" data-audio-card={item.id}
              style={`animation: fadeInUp 0.6s ease-out ${index * 0.15}s both;`}>
-          <AudioPlayerStatic
-            title={item.title}
-            description={item.description}
-            url={item.url}
-            coverUrl={item.coverUrl}
-            id={item.id}
-          />
+          <div class="flex items-start gap-4">
+            {item.coverUrl && (
+              <img src={item.coverUrl} alt={item.title} class="w-20 h-20 rounded-lg object-cover flex-shrink-0" loading="lazy" />
+            )}
+            <div class="flex-1 min-w-0">
+              <h4 class="font-display text-lg text-ink-800 mb-1">{item.title}</h4>
+              <p class="text-ink-400 text-sm mb-3 line-clamp-2">{item.description}</p>
+              <div class="flex items-center gap-3">
+                <button class="audio-play-btn w-10 h-10 rounded-full bg-china-red-500 text-white flex items-center justify-center hover:bg-china-red-600 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="flex-1">
+                  <div class="audio-progress w-full h-1.5 bg-ink-200 rounded-full cursor-pointer">
+                    <div class="audio-progress-fill h-full bg-china-red-500 rounded-full" style="width: 0%"></div>
+                  </div>
+                  <div class="flex justify-between text-xs text-ink-400 mt-1">
+                    <span class="audio-current-time">0:00</span>
+                    <span class="audio-total-time">0:00</span>
+                  </div>
+                </div>
+              </div>
+              <audio src={item.url} preload="metadata" class="hidden"></audio>
+            </div>
+          </div>
         </div>
       ))}
     </div>
   </div>
 )}
 
-<!-- 视频占位组件（点击加载 iframe） -->
-<!-- 音频播放器组件 -->
-
 <!-- 视频懒加载与音频播放器脚本 -->
 <script>
-  /**
-   * 视频懒加载：点击封面后加载 Bilibili iframe
-   */
   function initVideoLazyLoad(): void {
     const videoCards = document.querySelectorAll('[data-video-card]');
     videoCards.forEach((card) => {
@@ -108,7 +132,6 @@ const videoItems = data.filter((d) => d.type === 'video');
       const title = (placeholder as HTMLElement).dataset.title || '';
 
       placeholder.addEventListener('click', () => {
-        // 替换为 iframe
         const iframe = document.createElement('iframe');
         iframe.src = `${url}&autoplay=0&high_quality=1`;
         iframe.title = title;
@@ -121,16 +144,13 @@ const videoItems = data.filter((d) => d.type === 'video');
         if (container) {
           container.innerHTML = '';
           container.appendChild(iframe);
+          container.classList.remove('hidden');
         }
-        // 隐藏占位图
         (placeholder as HTMLElement).classList.add('hidden');
       });
     });
   }
 
-  /**
-   * 自定义音频播放器
-   */
   function initAudioPlayers(): void {
     const audioCards = document.querySelectorAll('[data-audio-card]');
     audioCards.forEach((card) => {
@@ -140,13 +160,11 @@ const videoItems = data.filter((d) => d.type === 'video');
       const progressFill = card.querySelector('.audio-progress-fill') as HTMLElement;
       const currentTime = card.querySelector('.audio-current-time');
       const totalTime = card.querySelector('.audio-total-time');
-      const volumeSlider = card.querySelector('.audio-volume') as HTMLInputElement;
 
       if (!audio || !playBtn || !progress || !progressFill) return;
 
       let isPlaying = false;
 
-      // 播放/暂停
       playBtn.addEventListener('click', () => {
         if (isPlaying) {
           audio.pause();
@@ -165,7 +183,6 @@ const videoItems = data.filter((d) => d.type === 'video');
         playBtn.innerHTML = `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
       });
 
-      // 进度更新
       audio.addEventListener('timeupdate', () => {
         const pct = (audio.currentTime / audio.duration) * 100;
         progressFill.style.width = `${pct}%`;
@@ -180,19 +197,11 @@ const videoItems = data.filter((d) => d.type === 'video');
         }
       });
 
-      // 点击进度条跳转
       progress.addEventListener('click', (e) => {
         const rect = progress.getBoundingClientRect();
         const pct = (e.clientX - rect.left) / rect.width;
         audio.currentTime = pct * audio.duration;
       });
-
-      // 音量控制
-      if (volumeSlider) {
-        volumeSlider.addEventListener('input', () => {
-          audio.volume = parseFloat(volumeSlider.value);
-        });
-      }
     });
   }
 
@@ -210,36 +219,3 @@ const videoItems = data.filter((d) => d.type === 'video');
     initAudioPlayers();
   });
 </script>
-
-<!-- ===== 视频占位组件 ===== -->
-{videoItems.map((item) => (
-  <div class="hidden" data-video-template={item.id}>
-    <div class="video-placeholder card overflow-hidden cursor-pointer group"
-         data-url={item.url}
-         data-title={item.title}>
-      <!-- 封面图 -->
-      <div class="relative aspect-video bg-ink-800 overflow-hidden">
-        {item.coverUrl && (
-          <img src={item.coverUrl} alt={item.title} class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" loading="lazy" />
-        )}
-        <!-- 播放按钮 -->
-        <div class="absolute inset-0 flex items-center justify-center">
-          <div class="w-16 h-16 rounded-full bg-china-red-500/90 text-white flex items-center justify-center
-                      shadow-lg shadow-china-red-500/40 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
-        <!-- 来源标签 -->
-        <span class="absolute top-2 right-2 px-2 py-0.5 bg-black/60 text-white text-xs rounded">
-          Bilibili
-        </span>
-      </div>
-      <!-- 信息 -->
-      <div class="p-4">
-        <h4 class="font-display text-lg text-ink-800 group-hover:text-china-red-500 transition-colors mb-2">{item.title}</h4>
-        <p class="text-ink-400 text-sm line-clamp-2">{item.description}</p>
-      </div>
-    </div>
-    <div class="video-iframe-container mt-2 rounded-lg overflow-hidden bg-ink-800 aspect-video"></div>
-  </div>
-))}
