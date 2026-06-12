@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A1A1A"/>
+      <stop offset="100%" stop-color="#2D2D2D"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bg)"/>
+  <g transform="translate(300,340)">
+    <ellipse cx="0" cy="0" rx="160" ry="200" fill="#F0EDE5"/>
+    <ellipse cx="0" cy="-20" rx="135" ry="165" fill="#E8E4DA"/>
+    <path d="M-95 -55 Q-55 -80 -15 -50" fill="none" stroke="#1A1A1A" stroke-width="4"/>
+    <path d="M15 -50 Q55 -80 95 -55" fill="none" stroke="#1A1A1A" stroke-width="4"/>
+    <ellipse cx="-55" cy="-40" rx="25" ry="14" fill="white"/>
+    <ellipse cx="55" cy="-40" rx="25" ry="14" fill="white"/>
+    <circle cx="-55" cy="-38" r="8" fill="#1A1A1A"/>
+    <circle cx="55" cy="-38" r="8" fill="#1A1A1A"/>
+    <circle cx="-53" cy="-40" r="3" fill="white"/>
+    <circle cx="57" cy="-40" r="3" fill="white"/>
+    <path d="M-70 -75 Q0 -100 70 -75" fill="none" stroke="#1A1A1A" stroke-width="2.5"/>
+    <path d="M-20 15 Q0 5 20 15" fill="none" stroke="#1A1A1A" stroke-width="2.5"/>
+    <path d="M-15 30 Q0 45 15 30" fill="#E8E4DA" stroke="#1A1A1A" stroke-width="2"/>
+    <ellipse cx="0" cy="48" rx="20" ry="10" fill="#CC3333"/>
+    <path d="M-85 -25 Q-125 -50 -105 -85" fill="none" stroke="#2A2A2A" stroke-width="6"/>
+    <path d="M85 -25 Q125 -50 105 -85" fill="none" stroke="#2A2A2A" stroke-width="6"/>
+  </g>
+  <text x="300" y="650" text-anchor="middle" fill="#D4A843" font-size="28" font-weight="bold" font-family="serif">曹操</text>
+  <text x="300" y="680" text-anchor="middle" fill="#D4A843" font-size="16" font-family="serif" opacity="0.7">白净谱式 · 奸雄本色</text>
+</svg>

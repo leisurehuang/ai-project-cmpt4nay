@@ -1,47 +1,47 @@
 [
   {
     "id": "m001",
-    "title": "《三滴血》经典选段（音频）",
+    "title": "三滴血经典选段（音频）",
     "type": "audio",
     "source": "external",
-    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-    "coverUrl": "/assets/images/plays/sandixue-cover.webp",
-    "description": "《三滴血》是秦腔大师刘易平的代表剧目，讲述了因县令晋信书迷信“滴血认亲”而导致的悲欢离合。这段唱腔苍劲悲凉，充分展现了秦腔老生行当的醇厚韵味，是不可多得的经典录音。"
+    "url": "https://www.bilibili.com/video/BV1eJ411U7Zp/",
+    "coverUrl": "/ai-project-cmpt4nay/assets/images/costumes/chinese-opera-showcase.jpg",
+    "description": "三滴血是秦腔大师刘易平的代表剧目。讲述了山西商人周仁瑞之子被县令晋信书以滴血认亲之法误判为非亲生而强行分离的悲欢离合故事。该剧深刻讽刺了教条主义，充满戏剧张力。"
   },
   {
     "id": "m002",
-    "title": "秦腔《火焰驹》表花选段（音频）",
-    "type": "audio",
-    "source": "external",
-    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-    "coverUrl": "/assets/images/plays/huoyanju-cover.webp",
-    "description": "《火焰驹》表花选段是秦腔正旦（青衣）的必修剧目，唱腔优美婉转，配以细腻的身段和水袖表演，生动刻画了黄桂英对爱情的坚贞不渝和对封建礼教的反抗精神。"
+    "title": "周仁回府夜奔选段（视频）",
+    "type": "video",
+    "source": "bilibili",
+    "url": "https://www.bilibili.com/video/BV1eJ411U7Zp/",
+    "coverUrl": "/ai-project-cmpt4nay/assets/images/costumes/qinqiang-love.jpg",
+    "description": "周仁回府是秦腔须生（老生）的看家戏。演员在悲愤交加的情绪中，运用甩发、跬步、抢背等高难度特技，配合撕心裂肺的唱腔，将周仁内心的痛苦、委屈与绝望表现得淋漓尽致，极具艺术感染力。"
   },
   {
     "id": "m003",
-    "title": "纪录片《大秦之腔》（上集）",
+    "title": "纪录片秦腔（全3集）",
     "type": "video",
     "source": "bilibili",
-    "url": "https://player.bilibili.com/player.html?bvid=BV1YW411M7vD&page=1",
-    "coverUrl": "/assets/images/plays/daqinzhiqiang-cover.webp",
+    "url": "https://www.bilibili.com/video/BV1sx411m7zP/",
+    "coverUrl": "/ai-project-cmpt4nay/assets/images/history/qinqiang-accompaniment.jpg",
     "description": "本纪录片深入陕西关中腹地，探访秦腔的起源、发展和传承现状。从古老的戏台到现代化的剧院，从乡村的自乐班到国家级的名角大腕，全景展现秦腔这一古老艺术的独特魅力和旺盛生命力。"
   },
   {
     "id": "m004",
-    "title": "秦腔《周仁回府》夜奔选段",
+    "title": "秦腔金榜题名陕西省戏曲研究院青年团",
     "type": "video",
     "source": "bilibili",
-    "url": "https://player.bilibili.com/player.html?bvid=BV1ms411Q7iA&page=1",
-    "coverUrl": "/assets/images/plays/zhouren-cover.webp",
-    "description": "《周仁回府》夜奔选段是秦腔须生行当的巅峰之作。演员在悲愤交加的情绪中，运用甩发、跪步、抢背等高难度特技，配合撕心裂肺的唱腔，将周仁内心的痛苦、委屈与绝望表现得淋漓尽致，极具艺术感染力。"
+    "url": "https://www.bilibili.com/video/BV1G5atz8En3/",
+    "coverUrl": "/ai-project-cmpt4nay/assets/images/history/chinese-opera-performance.jpg",
+    "description": "陕西省戏曲研究院青年团的精彩演出，展现了年轻一代秦腔演员的艺术水准。秦腔正在以一种全新的方式吸引着年轻观众，许多年轻的秦腔演员和爱好者通过直播、短视频等形式，将古老的秦腔与现代流行元素相结合。"
   },
   {
     "id": "m005",
-    "title": "当年轻人遇见秦腔（短视频）",
+    "title": "秦腔经典唱段合集",
     "type": "video",
     "source": "bilibili",
-    "url": "https://player.bilibili.com/player.html?bvid=BV1J54y1Q7iR&page=1",
-    "coverUrl": "/assets/images/plays/youth-qinqiang-cover.webp",
-    "description": "在短视频平台上，秦腔正在以一种全新的方式吸引着年轻观众。许多年轻的秦腔演员和爱好者通过直播、短视频等形式，将古老的秦腔与现代流行元素相结合，让这一国家级非物质文化遗产在新时代焕发出新的生机。"
+    "url": "https://www.bilibili.com/video/BV1Fz4y1w7ub/",
+    "coverUrl": "/ai-project-cmpt4nay/assets/images/costumes/qinqiang-love.jpg",
+    "description": "收录了多段秦腔经典唱段，包括三滴血、周仁回府、火焰驹等传统名剧的精彩片段。通过这些经典唱段，可以充分领略秦腔老生、青衣、花脸等各行当的独特韵味和艺术魅力。"
   }
 ]

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F0E8"/>
+      <stop offset="100%" stop-color="#E0D3BE"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <g opacity="0.15">
+    <path d="M50 400 Q100 350 150 380 Q200 410 250 370 Q300 330 350 360" fill="none" stroke="#D4A843" stroke-width="2"/>
+    <path d="M400 410 Q450 370 500 390 Q550 410 600 370 Q650 330 700 360 Q750 380 780 350" fill="none" stroke="#D4A843" stroke-width="2"/>
+    <circle cx="400" cy="120" r="60" fill="none" stroke="#D4A843" stroke-width="1.5" opacity="0.3"/>
+    <circle cx="400" cy="120" r="45" fill="none" stroke="#D4A843" stroke-width="1" opacity="0.2"/>
+  </g>
+  <g transform="translate(400,180)">
+    <text x="0" y="0" text-anchor="middle" fill="#C41A1A" font-size="48" font-weight="bold" font-family="serif">先秦</text>
+    <text x="0" y="50" text-anchor="middle" fill="#525252" font-size="20" font-family="serif">秦腔的远古渊源</text>
+    <line x1="-60" y1="65" x2="60" y2="65" stroke="#D4A843" stroke-width="2"/>
+    <text x="0" y="90" text-anchor="middle" fill="#D4A843" font-size="14" font-family="serif">农耕祭祀 · 民间歌舞</text>
+  </g>
+  <g opacity="0.1" transform="translate(100,300)">
+    <path d="M0 40 L20 0 L40 40 Z" fill="#C41A1A"/>
+    <path d="M60 40 L80 0 L100 40 Z" fill="#C41A1A"/>
+  </g>
+  <g opacity="0.08" transform="translate(580,280)">
+    <rect x="0" y="0" width="80" height="60" rx="4" fill="#C41A1A"/>
+    <rect x="10" y="10" width="20" height="25" fill="#F5F0E8"/>
+    <rect x="50" y="10" width="20" height="25" fill="#F5F0E8"/>
+  </g>
+</svg>

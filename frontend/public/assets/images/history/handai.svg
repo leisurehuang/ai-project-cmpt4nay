@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F0E8"/>
+      <stop offset="100%" stop-color="#E0D3BE"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <g opacity="0.15">
+    <path d="M100 380 Q150 330 200 360 Q250 390 300 350 Q350 310 400 340 Q450 370 500 330" fill="none" stroke="#D4A843" stroke-width="2"/>
+    <path d="M350 390 Q400 350 450 370 Q500 390 550 350 Q600 310 650 340 Q700 370 750 330" fill="none" stroke="#D4A843" stroke-width="2"/>
+  </g>
+  <g transform="translate(400,180)">
+    <text x="0" y="0" text-anchor="middle" fill="#C41A1A" font-size="48" font-weight="bold" font-family="serif">汉代</text>
+    <text x="0" y="50" text-anchor="middle" fill="#525252" font-size="20" font-family="serif">百戏中的秦声</text>
+    <line x1="-60" y1="65" x2="60" y2="65" stroke="#D4A843" stroke-width="2"/>
+    <text x="0" y="90" text-anchor="middle" fill="#D4A843" font-size="14" font-family="serif">百戏繁荣 · 优伶表演</text>
+  </g>
+  <g opacity="0.1" transform="translate(120,260)">
+    <circle cx="40" cy="40" r="35" fill="none" stroke="#C41A1A" stroke-width="2"/>
+    <path d="M25 30 Q40 20 55 30" fill="none" stroke="#C41A1A" stroke-width="1.5"/>
+    <circle cx="32" cy="38" r="3" fill="#C41A1A"/>
+    <circle cx="48" cy="38" r="3" fill="#C41A1A"/>
+  </g>
+  <g opacity="0.08" transform="translate(560,250)">
+    <rect x="0" y="0" width="120" height="80" rx="4" fill="#1A1A1A"/>
+    <rect x="10" y="10" width="40" height="50" fill="#C41A1A" opacity="0.5"/>
+    <rect x="60" y="10" width="40" height="50" fill="#D4A843" opacity="0.5"/>
+  </g>
+</svg>
